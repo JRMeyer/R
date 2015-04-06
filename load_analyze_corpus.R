@@ -1,7 +1,7 @@
 ###### Load and analyze Corpus ######
 
 #load the text file corpus
-textfile<-scan(file="/home/josh/google_drive/beverlab/2013_2014_Study/Design/Stimuli/generating_stims/Lexical_Decision/Kyrgyz/TOTAL_freqlist_Kyrgyz.txt", what="char", sep="\n", quote="", comment.char="")
+textfile<-scan(file="/path/to/file.txt", what="char", sep="\n", quote="", comment.char="")
 
 #make all words lowercase
 textfile<-tolower(textfile)
@@ -25,16 +25,15 @@ head(sorted.freq.list)
 sorted.table<-paste(names(sorted.freq.list), sorted.freq.list, sep="\t")
 
 #save the frequency list to a user friendly file using cat
-cat("WORD\tFREQ", sorted.table, file="Desktop/freqlist_Kyrgyz.txt", sep="\n")
+cat("WORD\tFREQ", sorted.table, file="/path/to/output.txt", sep="\n")
 
+#specific to my Kyrgyz corpus
 wordsCVCC<-grep("^[^аеиоуюяёыэөүь][аеиоуюёяыэөүь][^аеиоуюёяыэөүь][^аеиоуюёяыэөүь]$", y, perl=T, value=T)
 wordsCVC<-grep("^[^аеиоуюяёыэөү][аеиоуюяёыэөү][^аеиоуюяёыэөү]$", y, perl=T, value=T)
 first3<-regexpr("^...", wordsCVCC)
 first3<-regmatches(wordsCVCC,first3)
 
-
 words<-grep("[пбтдцчгкж][юяё]", sorted.table, perl=T, value=T)
-
 
 wordsу<-grep("у", sorted.table, perl=T, value=T)
 wordsуу<-grep("уу", sorted.table, perl=T, value=T)

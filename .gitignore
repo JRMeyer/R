@@ -1,0 +1,5 @@
+# ignore R history
+.Rhistory
+
+# emacs temp files
+*~
