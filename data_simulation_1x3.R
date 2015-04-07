@@ -52,7 +52,7 @@ RTs<-c(condition1,condition2,condition3)
 IDs<-c(rep("condition1",n1),rep("condition2",n2),rep("condition3",n3))
      
 test<-data.frame(IDs,RTs)
-#test
+test
      
 model<-lm(RTs~IDs,test)
 summary(model)
