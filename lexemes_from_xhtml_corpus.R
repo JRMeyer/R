@@ -2,11 +2,10 @@
 ## load in a dir of files (and possibly dirs) where the files 
 ## correspond to the text of a corpus with lexeme tags as in the RNC
 
-rm(list=ls())
+myPaths <- commandArgs(TRUE)
+dir <- myPaths[1]
+outFile <- myPaths[2]
 
-dir = "ruscorpora_1M/"
-outFile = "/home/josh/Desktop/lexemes.txt"
-  
 m<-list.files(dir, recursive=T,full.names=T)
 m<-grep(".xhtml",m,value=T,invert=F)
 
